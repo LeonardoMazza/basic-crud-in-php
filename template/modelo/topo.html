@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?=$titulo_pagina?></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item
+          <?php if(!$_GET['pagina']){?> 
+            active 
+          <?php } ?>">
+            <a class="nav-link" href="index.php">Home</a>
+          </li>
+          <?php if(!$logado){
+          ?>
+          <li class="nav-item
+          <?php if($_GET['pagina']=='entrar'){?> 
+            active 
+          <?php } ?>">
+            <a class="nav-link" href="?pagina=entrar">Entrar</a>
+          </li>
+          <li class="nav-item
+          <?php if($_GET['pagina']=='cadastro'){?> 
+            active 
+          <?php } ?>">
+            <a class="nav-link" href="?pagina=cadastro">Cadaste-se</a>
+          </li>
+          <?php } ?>
+
+          <?php if($logado){
+            
+          ?>
+          <li class="nav-item">
+            <a class="nav-link" href="?pagina=painel">Painel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?pagina=sair">Sair</a>
+          </li>
+          <?php } ?>
+        </ul>
+      </div>
+    </nav>
